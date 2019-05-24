@@ -3,12 +3,12 @@
     using HTTP.Enums;
     using HTTP.Common;
     using HTTP.Cookies;
-    using HTTP.Sessions;
     using HTTP.Requests;
     using HTTP.Exceptions;
     using HTTP.Requests.Contracts;
     using HTTP.Responses.Contracts;
     using Results;
+    using Sessions;
     using Routing.Contracts;
     using System;
     using System.Text;
@@ -116,15 +116,15 @@
             {
                 var cookie = httpRequest.Cookies.GetCookie(HttpSessionStorage.SessionCookieKey);
                 sessionId = cookie.Value;
-                httpRequest.Session = HttpSessionStorage.GetSession(sessionId);
             }
             else
             {
                 sessionId = Guid.NewGuid().ToString();
-                httpRequest.Session = HttpSessionStorage.GetSession(sessionId);
             }
 
-            return sessionId;
+            httpRequest.Session = HttpSessionStorage.GetSession(sessionId);
+
+            return httpRequest.Session.Id;
         }
 
         private void SetResponseSession(IHttpResponse httpResponse, string sessionId)

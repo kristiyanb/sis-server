@@ -1,0 +1,12 @@
+D:\C# Web\Web Basics\WebServer\SIS\SIS.WebServer\bin\Debug\netstandard2.0\SIS.WebServer.deps.json
+D:\C# Web\Web Basics\WebServer\SIS\SIS.WebServer\bin\Debug\netstandard2.0\SIS.WebServer.dll
+D:\C# Web\Web Basics\WebServer\SIS\SIS.WebServer\bin\Debug\netstandard2.0\SIS.WebServer.pdb
+D:\C# Web\Web Basics\WebServer\SIS\SIS.WebServer\bin\Debug\netstandard2.0\SIS.HTTP.dll
+D:\C# Web\Web Basics\WebServer\SIS\SIS.WebServer\bin\Debug\netstandard2.0\SIS.HTTP.pdb
+D:\C# Web\Web Basics\WebServer\SIS\SIS.WebServer\obj\Debug\netstandard2.0\SIS.WebServer.csprojAssemblyReference.cache
+D:\C# Web\Web Basics\WebServer\SIS\SIS.WebServer\obj\Debug\netstandard2.0\SIS.WebServer.csproj.CoreCompileInputs.cache
+D:\C# Web\Web Basics\WebServer\SIS\SIS.WebServer\obj\Debug\netstandard2.0\SIS.WebServer.AssemblyInfoInputs.cache
+D:\C# Web\Web Basics\WebServer\SIS\SIS.WebServer\obj\Debug\netstandard2.0\SIS.WebServer.AssemblyInfo.cs
+D:\C# Web\Web Basics\WebServer\SIS\SIS.WebServer\obj\Debug\netstandard2.0\SIS.WebServer.csproj.CopyComplete
+D:\C# Web\Web Basics\WebServer\SIS\SIS.WebServer\obj\Debug\netstandard2.0\SIS.WebServer.dll
+D:\C# Web\Web Basics\WebServer\SIS\SIS.WebServer\obj\Debug\netstandard2.0\SIS.WebServer.pdb

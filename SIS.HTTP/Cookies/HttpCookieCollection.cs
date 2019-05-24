@@ -1,5 +1,6 @@
 ﻿namespace SIS.HTTP.Cookies
 {
+    using System.Text;
     using System.Collections;
     using System.Collections.Generic;
     using Common;
@@ -18,7 +19,10 @@
         {
             CoreValidator.ThrowIfNull(cookie, nameof(cookie));
 
-            this.cookies.Add(cookie.Key, cookie);
+            if (!this.cookies.ContainsKey(cookie.Key))
+            {
+                this.cookies[cookie.Key] = cookie;
+            }
         }
 
         public bool ContainsCookie(string key)
@@ -36,20 +40,21 @@
         }
 
         public bool HasCookies() => this.cookies.Count != 0;
-        public IEnumerator<HttpCookie> GetEnumerator()
-        {
-            foreach (var cookie in this.cookies.Values)
-            {
-                yield return cookie;
-            }
-        }
+
+        public IEnumerator<HttpCookie> GetEnumerator() => this.cookies.Values.GetEnumerator();
 
         IEnumerator IEnumerable.GetEnumerator() => this.GetEnumerator();
 
         public override string ToString()
         {
-            //TODO: fix separator
-            return string.Join(";", this.cookies.Values);
+            var output = new StringBuilder();
+
+            foreach (var cookie in this.cookies.Values)
+            {
+                output.Append($"Set-Cookie: {cookie}").Append(GlobalConstants.HttpNewLine);
+            }
+
+            return output.ToString();
         }
     }
 }

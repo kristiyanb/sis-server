@@ -72,7 +72,7 @@
 
             if (this.Cookies.HasCookies())
             {
-                output.Append($"Set-Cookie: {this.Cookies.ToString()}").Append(GlobalConstants.HttpNewLine);
+                output.Append($"{this.Cookies.ToString()}").Append(GlobalConstants.HttpNewLine);
             }
 
             output.Append($"{GlobalConstants.HttpNewLine}");

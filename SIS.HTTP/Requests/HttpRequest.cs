@@ -122,14 +122,27 @@
         private void ParseRequestHeaders(string[] requestContent)
         {
             requestContent
-                .Select(x => x.Split(new[] { ':', ' ' }, StringSplitOptions.RemoveEmptyEntries))
+                .Select(x => x.Split(new[] { ": " }, StringSplitOptions.RemoveEmptyEntries))
                 .ToList()
                 .ForEach(x => this.Headers.AddHeader(new HttpHeader(x[0], x[1])));
         }
 
         private void ParseCookies()
         {
+            if (this.Headers.ContainsHeader(HttpHeader.Cookie))
+            {
+                var value = this.Headers.GetHeader(HttpHeader.Cookie).Value;
+                var unparsedCookies = value.Split(new[] { "; " }, StringSplitOptions.RemoveEmptyEntries);
 
+                foreach (var unparsedCookie in unparsedCookies)
+                {
+                    var cookieKvp = unparsedCookie.Split(new[] { '=' }, 2);
+
+                    var httpCookie = new HttpCookie(cookieKvp[0], cookieKvp[1], false);
+
+                    this.Cookies.AddCookie(httpCookie);
+                }
+            }
         }
 
         private void ParseQueryParameters()
@@ -159,7 +172,7 @@
         private void ParseRequestParameters(string formData)
         {
             this.ParseQueryParameters();
-            this.ParseFormDataParameters(formData); //TODO: Split
+            this.ParseFormDataParameters(formData);
         }
     }
 }
