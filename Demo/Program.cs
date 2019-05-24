@@ -20,7 +20,7 @@ namespace Demo
 
             serverRoutingTable.Add(HttpRequestMethod.Get, "/", request => htmlResult);
 
-            Server server = new Server(8000, serverRoutingTable);
+            Server server = new Server(8001, serverRoutingTable);
 
             server.Run();
         }
